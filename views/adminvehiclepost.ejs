@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styled Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-row.full-width {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <% if(msg){ %>
+        <script> alert('<%= msg %> ')</script>
+        <% } %>
+    <form action="/admin/vehiclep" method="post" enctype="multipart/form-data" >
+        <!-- Title and Car Brand -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required />
+            </div>
+            <div class="form-group">
+                <label for="car">Car Brand</label>
+                <select id="car" name="car">
+                    <option value="" disabled selected>Select a Brand</option>
+                    <% data2.forEach(item=> { %>
+                        <option value="<%= item.brandname %>">
+                            <%= item.brandname %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+        </div>
+
+        <!-- Over (Full Width) -->
+        <div class="form-row full-width">
+            <div class="form-group">
+                <label for="over">Description</label>
+                <textarea id="over" name="over" rows="4" required></textarea>
+            </div>
+        </div>
+
+        <!-- Price, Fuel, Model Year, Seating -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="price">Price per Day</label>
+                <input type="text" id="price" name="price" placeholder="Price per day" required />
+            </div>
+            <div class="form-group">
+                <label for="fuel">Fuel</label>
+                <select id="fuel" name="fuel">
+                    <option value="" disabled selected>Select fuel type</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="petrol">Petrol</option>
+                    <option value="hybrid">Hybrid</option>
+                    <option value="electric">electric</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="carmodel">Model Year</label>
+                <input type="text" id="carmodel" name="carmodel" placeholder="Model Year" required />
+            </div>
+            <div class="form-group">
+                <label for="seating">Seating Capacity</label>
+                <input type="text" id="seating" name="seating" placeholder="Seating Capacity" required />
+            </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group">
+          <label for="images">upload images</label>
+          <input type="file" name="image" accept="image/*" multiple required />
+        </div>
+      </div>
+
+      <!-- Checkbox Section -->
+<div class="form-row full-width">
+    <label>Accessories</label>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+        <div>
+            <input type="checkbox" id="ac" name="accessories" value="Air Conditioner">
+            <label for="ac">Air Conditioner</label>
+        </div>
+        <div>
+            <input type="checkbox" id="abs" name="accessories" value="Antilock Braking System">
+            <label for="abs">Antilock Braking System</label>
+        </div>
+        <div>
+            <input type="checkbox" id="ps" name="accessories" value="Power Steering">
+            <label for="ps">Power Steering</label>
+        </div>
+        <div>
+            <input type="checkbox" id="pw" name="accessories" value="Power Windows">
+            <label for="pw">Power Windows</label>
+        </div>
+        <div>
+            <input type="checkbox" id="cd" name="accessories" value="CD Player">
+            <label for="cd">CD Player</label>
+        </div>
+        <div>
+            <input type="checkbox" id="ls" name="accessories" value="Leather Seats">
+            <label for="ls">Leather Seats</label>
+        </div>
+        <div>
+            <input type="checkbox" id="cl" name="accessories" value="Central Locking">
+            <label for="cl">Central Locking</label>
+        </div>
+        <div>
+            <input type="checkbox" id="pdl" name="accessories" value="Power Door Locks">
+            <label for="pdl">Power Door Locks</label>
+        </div>
+        <div>
+            <input type="checkbox" id="ba" name="accessories" value="Brake Assist">
+            <label for="ba">Brake Assist</label>
+        </div>
+        <div>
+            <input type="checkbox" id="da" name="accessories" value="Driver Airbag">
+            <label for="da">Driver Airbag</label>
+        </div>
+        <div>
+            <input type="checkbox" id="pa" name="accessories" value="Passenger Airbag">
+            <label for="pa">Passenger Airbag</label>
+        </div>
+        <div>
+            <input type="checkbox" id="cs" name="accessories" value="Crash Sensor">
+            <label for="cs">Crash Sensor</label>
+        </div>
+    </div>
+</div>
+
+
+        <div class="form-row full-width">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

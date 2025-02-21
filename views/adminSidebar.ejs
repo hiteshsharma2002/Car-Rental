@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 250px;
+            height: calc(100vh - 56px);
+            background-color: #343a40;
+            color: #ddd;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .sidebar .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: inherit;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Dropdown styles */
+        .menu-item.dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #343a40;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .menu-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-item">
+            <a href="/admin/admindashboard">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+        </div>
+        <div class="menu-item dropdown">
+            <a href="#">
+                <i class="fas fa-users"></i> Brands
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/admin/brand/create">Create Brand</a></li>
+                <li><a href="/admin/brand/manage">Manage Brand</a></li>
+            </ul>
+        </div>
+        <div class="menu-item dropdown">
+            <a href="#">
+                <i class="fa fa-calendar"></i> Vehicles
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/admin/vehicle/post">Post a Vehicle</a></li>
+                <li><a href="/admin/vehicle/manage">Manage Vehicles</a></li>
+            </ul>
+        </div>
+        
+        <div class="menu-item">
+            <a href="/admin/bookings">
+                <i class="fas fa-sign-out-alt"></i> Manage Bookings
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/test">
+                <i class="fas fa-comment"></i> Manage Testimonials
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/contact">
+                <i class="fas fa-envelope-open-text"></i> Manage Contact Us Query
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/reg">
+                <i class="fas fa-user"></i> Reg Users
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/pages">
+                <i class="fas fa-file-alt"></i> Manage Pages
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/info">
+                <i class="fas fa-phone-alt"></i> Update Contact Info
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/subs">
+                <i class="fas fa-users-cog"></i> Manage Subscribers
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="/admin/signout">
+                <i class="fas fa-sign-out-alt"></i> Sign-Out
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

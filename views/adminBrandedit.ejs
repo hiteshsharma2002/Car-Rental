@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        form {
+            width: 50%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('adminHeader')  %>
+    <%- include('adminSidebar')  %>
+
+    <h1 style="text-align: center;">Edit Brand</h1>
+
+    <form action="/admin/edit/<%= user.id %>" method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="brandname" value="<%= user.brandname %>" required>
+        
+        <button type="submit">Update</button>
+
+    </form> 
+</body>
+</html>

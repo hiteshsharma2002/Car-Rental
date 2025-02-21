@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .user-table {
+            width: 80%;
+            margin-left: 250px;
+            margin-top: 70px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0b51e6;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .edit,
+        .delete {
+            padding: 6px 12px;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .edit {
+            background-color: #4CAF50;
+        }
+
+        .edit:hover {
+            background-color: #45a049;
+        }
+
+        .delete {
+            background-color: #f44336;
+        }
+
+        .delete:hover {
+            background-color: #e53935;
+        }
+
+        td a {
+            margin-right: 10px;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('adminHeader')  %>
+    <%- include('adminSidebar')  %>
+  
+            <div class="user-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Brand Name</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data.length> 0) { %>
+                            <% data.forEach(item=> { %>
+                                <tr>
+                                    <td>
+                                        <%= item.brandname %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(item.createdAt).toISOString().split('T')[0] %> <!-- Sirf date (YYYY-MM-DD) -->
+                                    </td>
+                                    <td>
+                                        <%= new Date(item.updatedAt).toISOString().replace('T', ' ').split('.')[0] %> <!-- Date aur time -->
+                                    </td>
+                                    
+                                    <td>
+                                        <a href="/admin/edit/<%= item._id %>" class="edit">Edit</a>
+                                        <a href="/admin/delete/<%= item._id %>" class="delete">Delete</a>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="4" class="no-data">No data available</td>
+                                        </tr>
+                                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+</body>
+
+</html>

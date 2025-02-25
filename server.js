@@ -30,7 +30,7 @@ app.use(session({
 // connect to mongoose
 
 mongoose
-  .connect("mongodb://localhost:27017/CarTask")
+  .connect("mongodb+srv://hiteshs1506:hitesh@cluster0.ywgpl.mongodb.net")
   .then(() => console.log("MongoDb connected"))
   .catch(() => console.log("Cannot be connected"));
 
